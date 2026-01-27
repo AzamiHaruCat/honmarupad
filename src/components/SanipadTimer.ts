@@ -35,10 +35,14 @@ const STYLE = css`
     display: flex;
     align-items: end;
     justify-content: space-around;
-    left: 20px;
-    right: 20px;
-    bottom: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1;
+    padding: 0 20px 30px;
+  }
+  :host([active]) {
+    pointer-events: auto;
   }
   h1 {
     display: flex;
