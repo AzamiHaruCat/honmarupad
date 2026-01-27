@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         本丸ぱっど
 // @namespace    sanipad/honmarupad
-// @version      2026-01-27
+// @version      2026-01-27 16:32
 // @author       AzamiHaru
 // @description  ブラウザ版「刀剣乱舞ONLINE」のゲーム画面を調整するユーザースクリプトです。このスクリプトはブラウザの表示（DOM）のみを調整します。ゲームデータや通信内容には一切触れていません。ブラウザの標準機能で実現できる表示制御をスクリプトで代行しているだけですが、各位の判断で自己責任のもとご利用ください。
 // @license      Custom (See LICENSE file)
