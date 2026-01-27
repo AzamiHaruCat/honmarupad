@@ -11,7 +11,6 @@
 // @downloadURL  https://raw.githubusercontent.com/AzamiHaruCat/honmarupad/main/dist/honmarupad.user.js
 // @updateURL    https://raw.githubusercontent.com/AzamiHaruCat/honmarupad/main/dist/honmarupad.user.js
 // @match        https://play.games.dmm.com/game/tohken
-// @grant        window.focus
 // @run-at       document-start
 // @noframes
 // ==/UserScript==

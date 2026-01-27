@@ -17,6 +17,7 @@ export default defineConfig(({ command }) => {
         entry: 'src/main.ts',
         build: {
           fileName: 'honmarupad.user.js',
+          autoGrant: false,
         },
         userscript: {
           name: '本丸ぱっど',
