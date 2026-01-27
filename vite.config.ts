@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import monkey from 'vite-plugin-monkey';
+import pkg from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -20,7 +21,7 @@ export default defineConfig(({ command }) => {
         userscript: {
           name: '本丸ぱっど',
           namespace: 'sanipad/honmarupad',
-          version: '2026-01-27',
+          version: pkg.version,
           description:
             'ブラウザ版「刀剣乱舞ONLINE」のゲーム画面を調整するユーザースクリプトです。このスクリプトはブラウザの表示（DOM）のみを調整します。ゲームデータや通信内容には一切触れていません。ブラウザの標準機能で実現できる表示制御をスクリプトで代行しているだけですが、各位の判断で自己責任のもとご利用ください。',
           license: 'Custom (See LICENSE file)',
@@ -34,7 +35,7 @@ export default defineConfig(({ command }) => {
           author: 'AzamiHaru',
           match: matchPatterns,
           noframes: true,
-          'run-at': 'document-end',
+          'run-at': 'document-start',
         },
       }),
     ],

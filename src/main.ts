@@ -7,5 +7,5 @@ const main = () => {
 if (document.readyState === 'complete') {
   main();
 } else {
-  window.addEventListener('load', main, { once: true });
+  window.addEventListener('DOMContentLoaded', main, { once: true });
 }
