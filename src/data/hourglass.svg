@@ -1,0 +1,32 @@
+<svg id="hourglass" viewBox="-40 -40 80 80" style="paint-order: stroke"
+  xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path
+      d="M-25 25l0 4c2 6 48 6 50 0l0-4c-2-6-48-6-50 0z"
+      fill="#a98"
+      stroke="#333"
+      stroke-width="2"
+    />
+    <path d="M-25 25c2 6 48 6 50 0-2-6-48-6-50 0z" fill="#cba" />
+  </g>
+  <path
+    d="M-16-14c4 9 11 10 16 14 5-4 12-5 16-14-5-4-27-4-32 0zM-17 24c5 2 29 2 34 0-4-6-9-6-17-12-8 6-13 6-17 12z"
+    fill="#fc4"
+  />
+  <path
+    d="M-20-25c0 21 15 21 15 25 0 4-15 4-15 25 2 4 38 4 40 0 0-21-15-21-15-25 0-4 15-4 15-25"
+    fill="#8ac8"
+    stroke="#333"
+    stroke-width="1"
+    style="paint-order: fill"
+  />
+  <g>
+    <path
+      d="M-25-29l0 4c2 4 48 4 50 0l0-4c-2-4-48-4-50 0z"
+      fill="#a98"
+      stroke="#333"
+      stroke-width="2"
+    />
+    <path d="M-25-29c2 4 48 4 50 0-2-4-48-4-50 0z" fill="#cba" />
+  </g>
+</svg>
