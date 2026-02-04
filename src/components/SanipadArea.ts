@@ -59,6 +59,10 @@ export class SanipadArea extends LitElement implements AspectFitContainer {
 
   #observer?: MutationObserver;
 
+  get #header() {
+    return document.querySelector<HTMLElement>('header');
+  }
+
   get #target() {
     return document.querySelector<HTMLElement>('main:has(#game_frame)');
   }
@@ -110,21 +114,26 @@ export class SanipadArea extends LitElement implements AspectFitContainer {
   }
 
   #startObserving() {
-    if (this.#target) {
+    const complete = () => {
+      this.#observer?.disconnect();
+
+      Object.assign(this.#header?.style ?? {}, {
+        position: 'relative',
+        zIndex: '1',
+      } as CSSStyleDeclaration);
+
       this.ready = true;
       this.adjust();
-      return;
+    };
+
+    if (this.#target) {
+      complete();
+    } else {
+      this.#observer = new MutationObserver(() => {
+        if (this.#target) complete();
+      });
+      this.#observer.observe(document.body, { childList: true, subtree: true });
     }
-
-    this.#observer = new MutationObserver(() => {
-      if (this.#target) {
-        this.ready = true;
-        this.adjust();
-        this.#observer?.disconnect();
-      }
-    });
-
-    this.#observer.observe(document.body, { childList: true, subtree: true });
   }
 }
 

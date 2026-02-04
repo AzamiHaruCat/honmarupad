@@ -727,7 +727,7 @@
   var __privateAdd$7 = (obj, member, value) => member.has(obj) ? __typeError$7("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
   var __privateSet$2 = (obj, member, value, setter) => (__accessCheck$7(obj, member, "write to private field"), member.set(obj, value), value);
   var __privateMethod$3 = (obj, member, method) => (__accessCheck$7(obj, member, "access private method"), method);
-  var _observer, _SanipadArea_instances, target_get, startObserving_fn;
+  var _observer, _SanipadArea_instances, header_get, target_get, startObserving_fn;
   const TAG_NAME$8 = "sanipad-area";
   const TARGET_WIDTH = 1136;
   const TARGET_HEIGHT = 660;
@@ -804,23 +804,30 @@
   };
   _observer = new WeakMap();
   _SanipadArea_instances = new WeakSet();
+  header_get = function() {
+    return document.querySelector("header");
+  };
   target_get = function() {
     return document.querySelector("main:has(#game_frame)");
   };
   startObserving_fn = function() {
-    if (__privateGet$7(this, _SanipadArea_instances, target_get)) {
+    const complete = () => {
+      __privateGet$7(this, _observer)?.disconnect();
+      Object.assign(__privateGet$7(this, _SanipadArea_instances, header_get)?.style ?? {}, {
+        position: "relative",
+        zIndex: "1"
+      });
       this.ready = true;
       this.adjust();
-      return;
+    };
+    if (__privateGet$7(this, _SanipadArea_instances, target_get)) {
+      complete();
+    } else {
+      __privateSet$2(this, _observer, new MutationObserver(() => {
+        if (__privateGet$7(this, _SanipadArea_instances, target_get)) complete();
+      }));
+      __privateGet$7(this, _observer).observe(document.body, { childList: true, subtree: true });
     }
-    __privateSet$2(this, _observer, new MutationObserver(() => {
-      if (__privateGet$7(this, _SanipadArea_instances, target_get)) {
-        this.ready = true;
-        this.adjust();
-        __privateGet$7(this, _observer)?.disconnect();
-      }
-    }));
-    __privateGet$7(this, _observer).observe(document.body, { childList: true, subtree: true });
   };
   SanipadArea.styles = STYLE$8;
   __decorateClass$8([
